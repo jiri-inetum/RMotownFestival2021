@@ -22,9 +22,10 @@ namespace RMotownFestival.Api.Controllers
 
         [HttpGet("LineUp")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(Schedule))]
-        public ActionResult GetLineUp()
+        public async Task<ActionResult> GetLineUp()
         {
-            return Ok(FestivalDataSource.Current.LineUp);
+            var schedules = await _context.Schedules.Include(s => s.Items).ToListAsync();
+            return Ok(schedules);        
         }
 
         [HttpGet("Artists")]
@@ -37,9 +38,10 @@ namespace RMotownFestival.Api.Controllers
 
         [HttpGet("Stages")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IEnumerable<Stage>))]
-        public ActionResult GetStages()
+        public async Task<ActionResult> GetStages()
         {
-            return Ok(FestivalDataSource.Current.Stages);
+            var stages = await _context.Stages.ToListAsync();
+            return Ok(stages);
         }
 
         [HttpPost("Favorite")]
