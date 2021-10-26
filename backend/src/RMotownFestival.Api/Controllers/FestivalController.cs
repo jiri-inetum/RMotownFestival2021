@@ -29,7 +29,7 @@ namespace RMotownFestival.Api.Controllers
                     .ThenInclude(i => i.Artist)
                 .Include(s => s.Items)
                     .ThenInclude(i => i.Stage)
-                .ToListAsync();
+                .FirstOrDefaultAsync();
             return Ok(schedules);        
         }
 
