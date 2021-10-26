@@ -16,7 +16,10 @@ namespace RMotownFestival.Api.Data
             var stages = new List<Stage>() {
                          new Stage { Id = 1, FestivalId = 1, Name = "Main Stage", Description = description },
                          new Stage { Id = 2, FestivalId = 1, Name = "Orange Room", Description = description },
-                         new Stage { Id = 3, FestivalId = 1, Name = "StarDust", Description = description }
+                         new Stage { Id = 3, FestivalId = 1, Name = "StarDust", Description = description },
+                         new Stage { Id = 4, FestivalId = 1, Name = "Blue Room", Description = description },
+                         new Stage { Id = 5, FestivalId = 1, Name = "Room of retards", Description = description },
+
             };
 
             var artists = new List<Artist>() {
@@ -37,6 +40,8 @@ namespace RMotownFestival.Api.Data
             lineUp.Items.Add(new ScheduleItem { Id = 6, Artist = artists[4], Stage = stages[1], Time = new DateTime(1972, 07, 02, 20, 45, 0) });
             lineUp.Items.Add(new ScheduleItem { Id = 7, Artist = artists[3], Stage = stages[0], Time = new DateTime(1972, 07, 02, 22, 0, 0) });
             lineUp.Items.Add(new ScheduleItem { Id = 8, Artist = artists[1], Stage = stages[1], Time = new DateTime(1972, 07, 02, 22, 30, 0) });
+            lineUp.Items.Add(new ScheduleItem { Id = 9, Artist = artists[4], Stage = stages[3], Time = new DateTime(1972, 07, 02, 22, 30, 0) });
+            lineUp.Items.Add(new ScheduleItem { Id = 9, Artist = artists[4], Stage = stages[3], Time = new DateTime(1972, 07, 02, 07, 30, 0) });
 
             Current = new Festival
             {
