@@ -24,7 +24,12 @@ namespace RMotownFestival.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(Schedule))]
         public async Task<ActionResult> GetLineUp()
         {
-            var schedules = await _context.Schedules.Include(s => s.Items).ToListAsync();
+            var schedules = await _context.Schedules
+                .Include(s => s.Items)
+                    .ThenInclude(i => i.Artist)
+                .Include(s => s.Items)
+                    .ThenInclude(i => i.Stage)
+                .ToListAsync();
             return Ok(schedules);        
         }
 
