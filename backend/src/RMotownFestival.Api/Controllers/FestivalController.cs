@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.ApplicationInsights;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RMotownFestival.Api.DAL;
@@ -15,9 +16,11 @@ namespace RMotownFestival.Api.Controllers
     public class FestivalController : ControllerBase
     {
         private readonly MotownDbContext _context;
-        public FestivalController(MotownDbContext context)
+        private TelemetryClient _telemetryClient;
+        public FestivalController(MotownDbContext context,TelemetryClient telemetryClient)
         {
             _context = context;
+            _telemetryClient = telemetryClient;
         }
 
         [HttpGet("LineUp")]
@@ -35,10 +38,19 @@ namespace RMotownFestival.Api.Controllers
 
         [HttpGet("Artists")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IEnumerable<Artist>))]
-        public async Task<ActionResult> GetArtists()
+        public async Task<ActionResult> GetArtists(bool? withRatings)
         {
-            var artists = await _context.Artists.ToListAsync();
-            return Ok(artists);
+            if(withRatings.HasValue && withRatings.Value)
+            {
+                _telemetryClient.TrackEvent($"List of artists with ratings");
+            }
+            else
+            {
+                _telemetryClient.TrackEvent($"List of artists without ratings");
+            }
+            return base.Ok(FestivalDataSource.Current.Artists);
+            //var artists = await _context.Artists.ToListAsync();
+            //return Ok(artists);
         }
 
         [HttpGet("Stages")]

@@ -1,10 +1,13 @@
 
+using Azure.Storage;
+using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RMotownFestival.Api.Common;
 using RMotownFestival.Api.DAL;
 using RMotownFestival.Api.Options;
 using System;
@@ -36,8 +39,17 @@ namespace RMotownFestival.Api
                             );
                     }));
 
+            services.AddSingleton(p => new StorageSharedKeyCredential(
+                Configuration.GetValue<string>("Storage:AccountName"),
+                Configuration.GetValue<string>("Storage:AccountKey")));
+
+            services.AddSingleton(p => new BlobServiceClient(Configuration.GetValue<string>("Storage:ConnectionString")));
+            services.AddSingleton<BlobUtility>();
+            services.Configure<BlobSettingsOptions>(Configuration.GetSection("Storage"));
+
             services.AddCors();
             services.AddControllers();
+            services.AddApplicationInsightsTelemetry(Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

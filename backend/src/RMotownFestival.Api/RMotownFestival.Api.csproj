@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>3f8e3865-14db-45f6-ab2b-f6d4f54ddb2c</UserSecretsId>
+    <ApplicationInsightsResourceId>/subscriptions/ddd632dd-4038-4b67-b94a-4b4e5d15008d/resourceGroups/AzureTrackLab/providers/microsoft.insights/components/RMotownFestivalInsightsJVH</ApplicationInsightsResourceId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,6 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.10.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.15.0" />
+    <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.22.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.11">
       <PrivateAssets>all</PrivateAssets>

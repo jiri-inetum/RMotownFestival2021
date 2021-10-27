@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMotownFestival.Api", "src\RMotownFestival.Api\RMotownFestival.Api.csproj", "{31D1A820-14BF-44A9-8271-A77BF244B08E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RMotownFestival.Api", "src\RMotownFestival.Api\RMotownFestival.Api.csproj", "{31D1A820-14BF-44A9-8271-A77BF244B08E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMotownFestival.Functions", "RMotownFestival.Functions\RMotownFestival.Functions.csproj", "{141E34AB-7A91-4685-A9BB-1C810A77CE87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalyzationFunction", "AnalyzationFunction\AnalyzationFunction.csproj", "{53E6463B-0340-4E14-81C9-674C7918CAAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{31D1A820-14BF-44A9-8271-A77BF244B08E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31D1A820-14BF-44A9-8271-A77BF244B08E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31D1A820-14BF-44A9-8271-A77BF244B08E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{141E34AB-7A91-4685-A9BB-1C810A77CE87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{141E34AB-7A91-4685-A9BB-1C810A77CE87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{141E34AB-7A91-4685-A9BB-1C810A77CE87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{141E34AB-7A91-4685-A9BB-1C810A77CE87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53E6463B-0340-4E14-81C9-674C7918CAAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E6463B-0340-4E14-81C9-674C7918CAAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53E6463B-0340-4E14-81C9-674C7918CAAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53E6463B-0340-4E14-81C9-674C7918CAAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

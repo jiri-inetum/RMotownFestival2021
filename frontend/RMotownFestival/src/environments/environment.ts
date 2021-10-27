@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   festivalName: "RMotownFestival - DEV",
-  apiBaseUrl: "https://localhost:44395/api/"
+  apiBaseUrl: "https://localhost:44395/api/",
+  instrumentationKey: "a26461cd-674e-4848-8bc1-323b1742726c",
 };
 
 /*
