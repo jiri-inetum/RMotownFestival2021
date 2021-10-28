@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.FeatureManagement;
 using RMotownFestival.Api.Common;
 using RMotownFestival.Api.DAL;
 using RMotownFestival.Api.Options;
@@ -47,6 +48,7 @@ namespace RMotownFestival.Api
             services.AddSingleton<BlobUtility>();
             services.Configure<BlobSettingsOptions>(Configuration.GetSection("Storage"));
 
+            services.AddFeatureManagement();
             services.AddCors();
             services.AddControllers();
             services.AddApplicationInsightsTelemetry(Configuration["APPINSIGHTS_CONNECTIONSTRING"]);

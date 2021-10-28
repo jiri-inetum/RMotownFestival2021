@@ -29,8 +29,9 @@ namespace RMotownFestival.Api.Controllers
         [HttpPost]
         public void PostPicture(IFormFile file)
         {
+            var filename = Guid.NewGuid().ToString() + file.FileName;
             BlobContainerClient container = BlobUtility.GetPicturesContainer();
-            container.UploadBlob(file.FileName, file.OpenReadStream());
+            container.UploadBlob(filename, file.OpenReadStream());
         }
     }
 }

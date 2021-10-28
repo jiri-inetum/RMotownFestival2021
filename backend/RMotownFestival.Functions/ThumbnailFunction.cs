@@ -12,7 +12,7 @@ namespace RMotownFestival.Functions
 {
     public static class ThumbnailFunction
     {
-        [FunctionName("Function1")]
+        [FunctionName("ThumbnailFunction")]
         public static void Run([BlobTrigger("festivalpics/{name}", Connection = "BlobStorageConnection")] Stream myBlob, string name, ILogger log,
             [Blob("festivalthumbs/{name}", FileAccess.Write, Connection = "BlobStorageConnection")] Stream thumbnail)
         {

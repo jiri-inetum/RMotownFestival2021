@@ -23,8 +23,8 @@ namespace AnalyzationFunction
         }
 
 
-        [FunctionName("Function1")]
-        public async Task RunAsync([BlobTrigger("samples-workitems/{name}", Connection = "")] byte[] myBlob, string name, ILogger log, Binder binder)
+        [FunctionName("AnalyzationFunction")]
+        public async Task RunAsync([BlobTrigger("picsin/{name}", Connection = "BlobStorageConnection")] byte[] myBlob, string name, ILogger log, Binder binder)
         {
             ImageAnalysis analysis = await VisionClient.AnalyzeImageInStreamAsync(new MemoryStream(myBlob), Features);
 
